@@ -1,0 +1,36 @@
+# ─── .NET ──────────────────────────────────────────────
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.log
+*.nupkg
+*.snupkg
+TestResults/
+coverage/
+
+# ─── Node / Angular ────────────────────────────────────
+node_modules/
+dist/
+.angular/
+npm-debug.log*
+yarn-error.log
+
+# ─── Environment / secrets ────────────────────────────
+.env
+.env.local
+.env.*.local
+appsettings.Development.json
+appsettings.Local.json
+
+# ─── IDEs ─────────────────────────────────────────────
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ─── Keep these ───────────────────────────────────────
+!.husky/
+!.config/dotnet-tools.json

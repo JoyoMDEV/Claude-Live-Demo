@@ -1,0 +1,18 @@
+{
+  "tasks": [
+    {
+      "name": "dotnet-format",
+      "group": "pre-commit",
+      "command": "dotnet",
+      "args": ["csharpier", "format", "${staged}"],
+      "include": ["**/*.cs"]
+    },
+    {
+      "name": "dotnet-build-check",
+      "group": "pre-push",
+      "command": "dotnet",
+      "args": ["build", "backend/", "--no-incremental", "-c", "Release"],
+      "include": ["backend/**/*.cs", "backend/**/*.csproj"]
+    }
+  ]
+}

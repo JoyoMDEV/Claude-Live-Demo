@@ -1,0 +1,30 @@
+name: PR Checks (Gate)
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  backend:
+    uses: ./.github/workflows/ci-backend.yml
+
+  frontend:
+    uses: ./.github/workflows/ci-frontend.yml
+
+  all-checks-passed:
+    name: All checks passed
+    needs: [backend, frontend]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Verify all jobs succeeded
+        run: |
+          if [[ "${{ needs.backend.result }}" != "success" && "${{ needs.backend.result }}" != "skipped" ]]; then
+            echo "Backend CI failed"
+            exit 1
+          fi
+          if [[ "${{ needs.frontend.result }}" != "success" && "${{ needs.frontend.result }}" != "skipped" ]]; then
+            echo "Frontend CI failed"
+            exit 1
+          fi
+          echo "All checks passed ✅"

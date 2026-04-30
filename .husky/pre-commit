@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Run Husky.Net tasks (C# formatting via CSharpier)
+dotnet husky run --group pre-commit
+
+# Run Angular lint + Prettier via lint-staged
+cd frontend && npx lint-staged
