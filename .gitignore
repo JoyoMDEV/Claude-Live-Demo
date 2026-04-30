@@ -9,6 +9,7 @@ obj/
 *.snupkg
 TestResults/
 coverage/
+*.db
 
 # ─── Node / Angular ────────────────────────────────────
 node_modules/

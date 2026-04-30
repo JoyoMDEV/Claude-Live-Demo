@@ -11,7 +11,7 @@ import {
 @Injectable({ providedIn: 'root' })
 export class TodoService {
   private readonly http = inject(HttpClient);
-  private readonly apiUrl = 'http://localhost:5000/api/todos';
+  private readonly apiUrl = 'http://localhost:5005/api/todos';
 
   readonly todos = signal<Todo[]>([]);
   readonly loading = signal(false);

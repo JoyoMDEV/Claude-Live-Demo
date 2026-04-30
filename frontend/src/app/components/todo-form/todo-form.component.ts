@@ -45,7 +45,12 @@ export class TodoFormComponent implements OnInit {
   }
 
   submit(): void {
+    console.log('Submit wurde geklickt!');
+    console.log('Formular-Status:', this.form.status);
+    console.log('Formular-Werte:', this.form.value);
+
     if (this.form.invalid) {
+      console.warn('Formular ist INVALID!', this.form.errors);
       this.form.markAllAsTouched();
       return;
     }
