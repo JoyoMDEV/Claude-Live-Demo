@@ -1,0 +1,62 @@
+<div class="fade-up">
+  <button class="back-btn" (click)="cancel()">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+    </svg>
+    Zurück zur Übersicht
+  </button>
+
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">{{ isEditMode() ? 'Todo bearbeiten' : 'Neues Todo' }}</h1>
+      <p class="page-subtitle">Alle Pflichtfelder ausfüllen</p>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <form class="form-grid" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="field">
+        <label for="f-title">Titel <span class="required">*</span></label>
+        <input
+          class="form-input"
+          id="f-title"
+          type="text"
+          placeholder="Was möchtest du erledigen?"
+          formControlName="title"
+          [class.error]="titleControl.invalid && titleControl.touched"
+        />
+        @if (titleControl.touched && titleControl.hasError('required')) {
+          <span class="form-error">Bitte einen Titel eingeben.</span>
+        }
+        @if (titleControl.touched && titleControl.hasError('maxlength')) {
+          <span class="form-error">Titel darf maximal 200 Zeichen haben.</span>
+        }
+      </div>
+
+      <div class="field">
+        <label for="f-desc">Beschreibung</label>
+        <textarea
+          class="form-textarea"
+          id="f-desc"
+          placeholder="Optionale Details, Notizen, Links…"
+          formControlName="description"
+          rows="4"
+        ></textarea>
+      </div>
+
+      @if (error()) {
+        <div class="form-error-banner">{{ error() }}</div>
+      }
+
+      <div class="form-actions">
+        <button type="button" class="btn-secondary" (click)="cancel()">Abbrechen</button>
+        <button type="submit" class="btn-primary" [disabled]="submitting()">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+          {{ isEditMode() ? 'Änderungen speichern' : 'Todo erstellen' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

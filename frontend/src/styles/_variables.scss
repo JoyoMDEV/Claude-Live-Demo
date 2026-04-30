@@ -1,0 +1,35 @@
+// Design tokens – transferred 1:1 from Todo App.html prototype
+
+:root {
+  --bg: #f7f5fb;
+  --surface: #ffffff;
+  --surface-2: #f0edfb;
+
+  --lavender: #c9bef5;
+  --lavender-lt: #ede9fb;
+  --mint: #b8ecd8;
+  --mint-lt: #e6f8f0;
+  --peach: #f5cdb8;
+  --peach-lt: #fdeee6;
+  --sky: #b8d9f5;
+  --sky-lt: #e6f2fd;
+
+  --text-1: #2d2640;
+  --text-2: #6b6280;
+  --text-3: #a49dba;
+
+  --border: #e8e4f5;
+  --border-focus: #a897e8;
+
+  --shadow-sm: 0 1px 4px rgba(100, 80, 160, 0.07);
+  --shadow-md: 0 4px 20px rgba(100, 80, 160, 0.1);
+  --shadow-lg: 0 8px 40px rgba(100, 80, 160, 0.14);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  --ff: "Plus Jakarta Sans", sans-serif;
+  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
